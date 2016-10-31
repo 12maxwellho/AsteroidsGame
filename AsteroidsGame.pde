@@ -21,7 +21,7 @@ public void draw()
 }
 public void keyPressed()
 {
-    if(key=='w'){yeah.accelerate(50);}
+    if(key=='w'){yeah.accelerate(1);}
     if(key=='a'){yeah.setPointDirection((int)yeah.myPointDirection-15);}
     if(key=='d'){yeah.setPointDirection((int)yeah.myPointDirection+15);}
     if(key=='e'){
@@ -73,6 +73,7 @@ class SpaceShip extends Floater
   public void setPointDirection(int degrees){myPointDirection = degrees;}   
   public double getPointDirection(){return myPointDirection;} 
 }
+
 abstract class Floater //Do NOT modify the Floater class! Make changes in the SpaceShip class 
 {   
   protected int corners;  //the number of corners, a triangular floater has 3   
