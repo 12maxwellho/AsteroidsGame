@@ -21,14 +21,15 @@ public void draw()
 }
 public void keyPressed()
 {
-    if(key=='w'){yeah.accelerate(0.5);}
+    if(key=='w'){yeah.accelerate(50);}
     if(key=='a'){yeah.setPointDirection((int)yeah.myPointDirection-15);}
     if(key=='d'){yeah.setPointDirection((int)yeah.myPointDirection+15);}
     if(key=='e'){
-      yeah.setX((int)(Math.random()*360)); 
-      yeah.setY((int)(Math.random()*360));
+      yeah.setX((int)(Math.random()*501)); 
+      yeah.setY((int)(Math.random()*501));
       yeah.setDirectionX(0);
       yeah.setDirectionY(0);
+      yeah.setPointDirection((int)(Math.random()*360));
     }
 }
 class Star
