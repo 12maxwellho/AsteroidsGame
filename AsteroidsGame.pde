@@ -28,7 +28,6 @@ public void draw()
   }
   yeah.show();
   yeah.move();
-  yeah.hit();
   for(int i = 0;i<aster.length;i++)
   {
      aster[i].show();
@@ -76,8 +75,7 @@ class Star
 }
 
 class SpaceShip extends Floater  
-{ 
-  boolean hitX = false;  
+{  
   SpaceShip()
   {
     corners = 6;
@@ -85,7 +83,7 @@ class SpaceShip extends Floater
     int[] yS = {0,-10,-9,0,9,10};
     xCorners = xS;
     yCorners = yS;
-    if(hitX = false){myColor = color(127,255,0);}
+    myColor = color(127,255,0);
     myCenterX = 250; 
     myCenterY = 250;
     myDirectionX = 0; 
