@@ -37,7 +37,7 @@ public void draw()
 public void keyPressed()
 {
   if(key=='w'){up = true;}
-  if(key=='s'&&!(yeah.getDirectionX()==0 || yeah.getDirectionY()==0)){down = true;}
+  if(key=='s'){down = true;}
   if(key=='a'){left = true;}
   if(key=='d'){right = true;}
   if(key=='e'){
@@ -47,7 +47,7 @@ public void keyPressed()
     yeah.setDirectionY(0);
     yeah.setPointDirection((int)(Math.random()*360));}
   if(up==true){yeah.accelerate(0.5);}
-  if(down==true){yeah.accelerate(-1);}
+  if(down==true){yeah.accelerate(-0.5);}
   if(left==true){yeah.setPointDirection((int)yeah.myPointDirection-15);}
   if(right==true){yeah.setPointDirection((int)yeah.myPointDirection+15);}
 }
