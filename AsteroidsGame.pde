@@ -37,7 +37,7 @@ public void draw()
 public void keyPressed()
 {
   if(key=='w'){up = true;}
-  if(key=='s'){down = true;}
+  if(key=='s'&&!(yeah.getDirectionX()==0 || yeah.getDirectionY()==0)){down = true;}
   if(key=='a'){left = true;}
   if(key=='d'){right = true;}
   if(key=='e'){
