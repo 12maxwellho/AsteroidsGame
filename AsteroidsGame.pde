@@ -76,7 +76,8 @@ class Star
 }
 
 class SpaceShip extends Floater  
-{   
+{ 
+  boolean hitX = false;  
   SpaceShip()
   {
     corners = 6;
@@ -84,16 +85,12 @@ class SpaceShip extends Floater
     int[] yS = {0,-10,-9,0,9,10};
     xCorners = xS;
     yCorners = yS;
-    myColor = color(127,255,0);
+    if(hitX = false){myColor = color(127,255,0);}
     myCenterX = 250; 
     myCenterY = 250;
     myDirectionX = 0; 
     myDirectionY = 0;
     myPointDirection = 270;
-  }
-  public void hit()
-  {
-    if(get((int)myCenterX,(int)myCenterY)=color(127,255,0)){myColor = color(0);}
   }
   public void setX(int x){myCenterX = x;}  
   public int getX(){return (int)myCenterX;}   
