@@ -1,12 +1,13 @@
 //your variable declarations here
 SpaceShip yeah = new SpaceShip();
 Star[] stars = new Star[200]; 
-Asteroid[] aster = new Asteroid[10];
+
+ArrayList <Asteroid> hazard = new ArrayList <Asteroid>();
+
 boolean up = false;
 boolean down = false;
 boolean left = false;
 boolean right = false;
-boolean hitCheck = false;
 public void setup() 
 {
   size(500,500);
@@ -14,9 +15,9 @@ public void setup()
   {
     stars[i] = new Star();
   }
-  for(int i = 0;i<aster.length;i++)
+  for(int i = 0;i<1500;i++)
   {
-    aster[i] = new Asteroid();
+    hazard.add(new Asteroid());
   }
 }
 public void draw() 
@@ -28,10 +29,14 @@ public void draw()
   }
   yeah.show();
   yeah.move();
-  for(int i = 0;i<aster.length;i++)
+  for(int i = 0;i<hazard.size();i++)
   {
-     aster[i].show();
-     aster[i].move();
+     hazard.get(i).show();
+     hazard.get(i).move();
+     if(dist(yeah.getX(),yeah.getY(),hazard.get(i).getX(),hazard.get(i).getY())<30)
+     {
+       hazard.remove(i);
+     }
   }
 }
 public void keyPressed()
