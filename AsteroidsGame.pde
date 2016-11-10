@@ -15,7 +15,7 @@ public void setup()
   {
     stars[i] = new Star();
   }
-  for(int i = 0;i<1500;i++)
+  for(int i = 0;i<10;i++)
   {
     hazard.add(new Asteroid());
   }
