@@ -1,21 +1,24 @@
 //your variable declarations here
 SpaceShip yeah = new SpaceShip();
-Star[] stars = new Star[200]; 
+Star[] whoa = new Star[200]; 
 
 ArrayList <Asteroid> hazard = new ArrayList <Asteroid>();
+ArrayList <Bullet> bang = new ArrayList <Bullet>();
 
+boolean shoot = false;
 boolean up = false;
 boolean down = false;
 boolean left = false;
 boolean right = false;
+
 public void setup() 
 {
   size(500,500);
-  for(int i = 0;i<stars.length;i++)
+  for(int i = 0;i<whoa.length;i++)
   {
-    stars[i] = new Star();
+    whoa[i] = new Star();
   }
-  for(int i = 0;i<10;i++)
+  for(int i = 0;i<12;i++)
   {
     hazard.add(new Asteroid());
   }
@@ -23,9 +26,9 @@ public void setup()
 public void draw() 
 {
   background(0);
-  for(int i = 0;i<stars.length;i++)
+  for(int i = 0;i<whoa.length;i++)
   {
-    stars[i].show();
+    whoa[i].show();
   }
   yeah.show();
   yeah.move();
@@ -38,9 +41,27 @@ public void draw()
        hazard.remove(i);
      }
   }
+  for(int i = 0; i<bang.size(); i++)
+  {
+    bang.get(i).show();
+    bang.get(i).move();
+  }
+  for(int i = 0; i<bang.size(); i++)
+  {
+    for(int g = 0; g<hazard.size(); g++)
+    {
+      if(dist(bang.get(i).getX(),bang.get(i).getY(),hazard.get(g).getX(),hazard.get(g).getY())<30)
+      {
+        bang.remove(i);
+        hazard.remove(g);
+        break;
+      }
+    }
+  }
 }
 public void keyPressed()
 {
+  if(key==' '){shoot = true;}
   if(key=='w'){up = true;}
   if(key=='s'){down = true;}
   if(key=='a'){left = true;}
@@ -51,6 +72,7 @@ public void keyPressed()
     yeah.setDirectionX(0);
     yeah.setDirectionY(0);
     yeah.setPointDirection((int)(Math.random()*360));}
+  if(shoot==true){bang.add(new Bullet(yeah));}
   if(up==true){yeah.accelerate(0.5);}
   if(down==true){yeah.accelerate(-0.5);}
   if(left==true){yeah.setPointDirection((int)yeah.myPointDirection-15);}
@@ -58,6 +80,7 @@ public void keyPressed()
 }
 public void keyReleased()
 {
+  if(key==' '){shoot = false;}
   if(key=='w'){up = false;}
   if(key=='s'){down = false;}
   if(key=='a'){left = false;}
