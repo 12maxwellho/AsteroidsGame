@@ -1,4 +1,3 @@
-//your variable declarations here
 SpaceShip yeah = new SpaceShip();
 Star[] whoa = new Star[200]; 
 
@@ -10,6 +9,9 @@ boolean up = false;
 boolean down = false;
 boolean left = false;
 boolean right = false;
+
+int lives = 3;
+boolean lose = false;
 
 public void setup() 
 {
@@ -38,6 +40,7 @@ public void draw()
      hazard.get(i).move();
      if(dist(yeah.getX(),yeah.getY(),hazard.get(i).getX(),hazard.get(i).getY())<30)
      {
+       lives--;
        hazard.remove(i);
      }
   }
@@ -57,6 +60,18 @@ public void draw()
         break;
       }
     }
+  }
+  fill(255);
+  textSize(40);
+  text("Lives: "+lives,10,45);
+  if(lives==0)
+  {
+    lose = true;
+  }
+  if(lose == true)
+  {
+    fill(255);
+    rect(500,500,250,250);  
   }
 }
 public void keyPressed()
