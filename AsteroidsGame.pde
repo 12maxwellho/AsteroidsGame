@@ -11,7 +11,7 @@ boolean left = false;
 boolean right = false;
 
 int lives = 3;
-boolean lose = false;
+int score = 0;
 
 public void setup() 
 {
@@ -64,19 +64,20 @@ public void draw()
   fill(255);
   textSize(40);
   text("Lives: "+lives,10,45);
-  if(lives==0)
+  text("Score: "+score,10,85);
+  if(lives<=0)
   {
-    lose = true;
-  }
-  if(lose == true)
-  {
+    background(0);
     fill(255);
-    rect(500,500,250,250);  
+    textAlign(CENTER);
+    textSize(50);
+    text("GAME OVER",250,250);  
   }
 }
 public void keyPressed()
 {
-  if(key==' ' && frameCount%3==0){bang.add(new Bullet(yeah));}
+  if(key==' ' && frameCount%3==0){shoot = true;}
+  if(shoot==true && frameCount%3==0){bang.add(new Bullet(yeah));}
   if(key=='w'){up = true;}
   if(key=='s'){down = true;}
   if(key=='a'){left = true;}
