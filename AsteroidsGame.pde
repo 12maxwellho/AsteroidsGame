@@ -20,7 +20,7 @@ public void setup()
   {
     whoa[i] = new Star();
   }
-  for(int i = 0;i<12;i++)
+  for(int i = 0;i<15;i++)
   {
     hazard.add(new Asteroid());
   }
@@ -57,6 +57,7 @@ public void draw()
       {
         bang.remove(i);
         hazard.remove(g);
+        score++;
         break;
       }
     }
