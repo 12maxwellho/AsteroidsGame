@@ -1,5 +1,6 @@
 SpaceShip yeah = new SpaceShip();
 Star[] whoa = new Star[200]; 
+Stalker yikes = new Stalker();
 
 ArrayList <Asteroid> hazard = new ArrayList <Asteroid>();
 ArrayList <Bullet> bang = new ArrayList <Bullet>();
@@ -62,6 +63,15 @@ public void draw()
       }
     }
   }
+  if(dist(yikes.getX(),yikes.getY(),yeah.getX(),yeah.getY())<20)
+  {
+    lives--;
+    yikes.setX(250);
+    yikes.setY(520);
+  }
+  yikes.show();
+  yikes.move();
+
   fill(255);
   textSize(40);
   text("Lives: "+lives,10,45);
@@ -73,6 +83,14 @@ public void draw()
     textAlign(CENTER);
     textSize(50);
     text("GAME OVER",250,250);  
+  }
+  if(score==15)
+  {
+    background(0);
+    fill(255);
+    textAlign(CENTER);
+    textSize(50);
+    text("YOU WIN!",250,250);
   }
 }
 public void keyPressed()

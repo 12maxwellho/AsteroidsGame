@@ -3,8 +3,8 @@ class SpaceShip extends Floater
   SpaceShip()
   {
     corners = 6;
-    int[] xS = {12,-6,-7,0,-7,-6};
-    int[] yS = {0,-10,-9,0,9,10};
+    int[] xS = {12,-6,-8,0,-8,-6};
+    int[] yS = {0,-10,-8,0,8,10};
     xCorners = xS;
     yCorners = yS;
     myColor = color(127,255,0);
