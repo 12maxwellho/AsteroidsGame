@@ -42,6 +42,7 @@ public void draw()
      if(dist(yeah.getX(),yeah.getY(),hazard.get(i).getX(),hazard.get(i).getY())<30)
      {
        lives--;
+       score++;
        hazard.remove(i);
      }
   }
@@ -76,14 +77,6 @@ public void draw()
   textSize(40);
   text("Lives: "+lives,10,45);
   text("Score: "+score,10,85);
-  if(lives<=0)
-  {
-    background(0);
-    fill(255);
-    textAlign(CENTER);
-    textSize(50);
-    text("GAME OVER",250,250);  
-  }
   if(score==15)
   {
     background(0);
@@ -92,11 +85,19 @@ public void draw()
     textSize(50);
     text("YOU WIN!",250,250);
   }
+  if(lives<=0)
+  {
+    background(0);
+    fill(255);
+    textAlign(CENTER);
+    textSize(50);
+    text("GAME OVER",250,250);  
+  }
 }
 public void keyPressed()
 {
-  if(key==' ' && frameCount%3==0){shoot = true;}
-  if(shoot==true && frameCount%3==0){bang.add(new Bullet(yeah));}
+  if(key==' ' && frameCount%4==0){shoot = true;}
+  if(shoot==true && frameCount%5==0){bang.add(new Bullet(yeah));}
   if(key=='w'){up = true;}
   if(key=='s'){down = true;}
   if(key=='a'){left = true;}
@@ -123,7 +124,7 @@ public void keyReleased()
 class Star
 {
     private int myX; int myY;
-    public Star()
+    public Star() 
     {
       myX = (int)(Math.random()*500);
       myY = (int)(Math.random()*500);
